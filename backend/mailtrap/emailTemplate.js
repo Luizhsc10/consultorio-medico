@@ -7,7 +7,7 @@ export const VERIFICATION_EMAIL_TEMPLATE = `
   <title>Verifique Seu E-mail</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: #f5f7fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1d1d1f;">
-  <div style="max-width: 640px; margin: 72px auto 40px; padding: 0 20px;">
+  <div style="max-width: 640px; margin: 72px auto 40px; padding: 60px 20px;">
     <div style="background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08); border: 1px solid rgba(0,0,0,0.04);">
       
       <div style="background: linear-gradient(135deg, #0a84ff, #5ac8fa); padding: 38px 28px 34px; text-align: left;">
