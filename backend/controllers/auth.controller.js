@@ -1,7 +1,7 @@
-import { response } from "express";
 import { User } from "../src/models/User.js";
 import bcryptjs from "bcryptjs";
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
+import { sendVerificationEmail } from "../mailtrap/emails.js";
 
 export const signup = async (req, res) => {
   const { email, password, name } = req.body;
@@ -34,7 +34,15 @@ export const signup = async (req, res) => {
 
     await user.save();
 
+    console.log("User saved successfully");
+
     generateTokenAndSetCookie(res, user._id);
+
+    console.log("Sending verification email to:", user.email);
+
+    await sendVerificationEmail(user.email, verificationToken);
+
+    console.log("Verification email sent successfully");
 
     res.status(201).json({
       sucess: true,
@@ -45,7 +53,11 @@ export const signup = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    console.error("SIGNUP ERROR:", error);
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
   }
 };
 
