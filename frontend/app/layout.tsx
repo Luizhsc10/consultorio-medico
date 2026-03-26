@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   title: "Dra. Suzana Aparecida Silveira | Infectologia e Gestão em Saúde",
   description:
     "Landing page de infectologia com atuação em gestão em saúde, docência médica, acreditação e agendamento de consultas.",
+  icons: {
+    icon: "favicon.ico",
+    apple: "favicon.ico",
+  },
 };
 
 export default function RootLayout({

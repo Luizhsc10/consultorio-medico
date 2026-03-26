@@ -11,18 +11,6 @@ import {
   WhatsAppIcon,
 } from "@/components/landing/icons";
 
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Dra. Suzana Aparecida Silveira | Infectologia e Gestão em Saúde",
-  description:
-    "Landing page de infectologia com atuação em gestão em saúde, docência médica, acreditação e agendamento de consultas.",
-  icons: {
-    icon: "clinicLogoSrc",
-    apple: "clinicLogoSrc",
-  },
-};
-
 type IconComponent = (props: SVGProps<SVGSVGElement>) => ReactNode;
 
 type NavigationItem = {
