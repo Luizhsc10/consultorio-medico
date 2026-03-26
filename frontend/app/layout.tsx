@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   description:
     "Landing page de infectologia com atuação em gestão em saúde, docência médica, acreditação e agendamento de consultas.",
   icons: {
-    icon: "favicon.ico",
-    apple: "favicon.ico",
+    icon: "/icon.png?v=2",
+    apple: "/icon.png?v=2",
   },
 };
 
