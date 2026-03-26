@@ -1,26 +1,242 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fbfe;
+  --foreground: #334155;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-sans-stack: var(--font-montserrat), "Segoe UI", "Helvetica Neue",
+    Arial, sans-serif;
+  --font-display-stack: var(--font-montserrat), "Segoe UI", "Helvetica Neue",
+    Arial, sans-serif;
+  --font-mono-stack: "Consolas", "SFMono-Regular", "Menlo", monospace;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand: #8abdeb;
+  --color-brand-soft: #ddeffd;
+  --color-surface: #ffffff;
+  --color-canvas: #f8fbfe;
+  --color-ink: #334155;
+  --color-muted: #64748b;
+  --color-line: #d7e5f3;
+  --font-sans: var(--font-sans-stack);
+  --font-mono: var(--font-mono-stack);
+  --font-display: var(--font-display-stack);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans-stack);
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+}
+
+* {
+  border-color: rgb(215 229 243 / 1);
+}
+
+::selection {
+  background: rgb(138 189 235 / 0.28);
+  color: #1e293b;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+@keyframes fade-up-soft {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-soft {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-in-soft {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.interactive-soft,
+.interactive-outline,
+.interactive-chip,
+.interactive-icon,
+.interactive-row,
+.field-transition,
+.link-soft::after {
+  transition-timing-function: var(--ease-premium);
+}
+
+.interactive-soft,
+.interactive-outline,
+.interactive-chip,
+.interactive-icon,
+.interactive-row,
+.field-transition {
+  transition-duration: 280ms;
+  transition-property: transform, background-color, border-color, color,
+    box-shadow, opacity;
+  will-change: transform;
+}
+
+.interactive-soft:hover,
+.interactive-outline:hover,
+.interactive-chip:hover,
+.interactive-icon:hover {
+  transform: translateY(-1px);
+}
+
+.interactive-soft:hover {
+  box-shadow: 0 24px 42px -30px rgb(100 139 176 / 0.5);
+}
+
+.interactive-outline:hover,
+.interactive-chip:hover,
+.interactive-icon:hover {
+  box-shadow: 0 18px 32px -30px rgb(100 139 176 / 0.34);
+}
+
+.interactive-soft:active,
+.interactive-outline:active,
+.interactive-chip:active,
+.interactive-icon:active {
+  transform: translateY(0);
+}
+
+.interactive-icon:hover {
+  transform: translateY(-1px) scale(1.03);
+}
+
+.interactive-row:hover {
+  transform: translateX(3px);
+}
+
+.field-transition:focus {
+  box-shadow: 0 0 0 3px rgb(138 189 235 / 0.14);
+}
+
+.link-soft {
+  position: relative;
+  display: inline-flex;
+  width: fit-content;
+  transition-duration: 280ms;
+  transition-property: color, opacity;
+}
+
+.link-soft::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -0.35rem;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition-duration: 280ms;
+  transition-property: transform, opacity;
+}
+
+.link-soft:hover::after {
+  opacity: 0.85;
+  transform: scaleX(1);
+}
+
+.modal-backdrop {
+  animation: fade-in-soft 220ms ease-out both;
+  backdrop-filter: blur(10px);
+}
+
+.modal-panel {
+  animation: modal-in-soft 320ms var(--ease-premium) both;
+}
+
+.motion-fade-up,
+.motion-fade-in {
+  opacity: 0;
+}
+
+.motion-delay-1 {
+  animation-delay: 90ms;
+}
+
+.motion-delay-2 {
+  animation-delay: 180ms;
+}
+
+.motion-delay-3 {
+  animation-delay: 270ms;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-fade-up {
+    animation: fade-up-soft 700ms var(--ease-premium) both;
+  }
+
+  .motion-fade-in {
+    animation: fade-in-soft 700ms ease-out both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .motion-fade-up,
+  .motion-fade-in {
+    opacity: 1;
+  }
+
+  .interactive-soft,
+  .interactive-outline,
+  .interactive-chip,
+  .interactive-icon,
+  .interactive-row,
+  .field-transition,
+  .link-soft,
+  .link-soft::after,
+  .modal-backdrop,
+  .modal-panel {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
 }
