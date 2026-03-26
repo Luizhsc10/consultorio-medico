@@ -28,15 +28,16 @@ type ContactItem = {
   external?: boolean;
 };
 
-const clinicName = "Dra. Suzana Aparecida Silveira";
+const clinicName = "Dra. Suzana Silveira";
 const clinicShortName = "Dra. Suzana Silveira";
-const clinicSpecialty = "Infectologista";
-const clinicAddress = "Alameda Serra Azul, 210, São Paulo, SP";
-const clinicPhoneDisplay = "+55 (12) 99700-6728";
-const clinicPhoneNumber = "5512997006728";
+const clinicSpecialty = "Medica Infectologista CRM-SP: 70.700 | RQE: 49.110";
+const clinicAddress =
+  "Av. Anchieta, 585 - Jardim Nova America São José dos Campos SP CEP: 12242-280";
+const clinicPhoneDisplay = "+55 (12) 98886-1256";
+const clinicPhoneNumber = "5512988861256";
 const clinicPhoneHref = `tel:+${clinicPhoneNumber}`;
 const clinicEmail = "susilveira1@gmail.com";
-const clinicEmailHref = "mailto:contato@consultorio.com";
+const clinicEmailHref = "mailto:susilveira1@gmail.com";
 const clinicLogoSrc = "/logo-suzana.jpeg";
 const instagramUrl = "https://www.instagram.com/drasuzanasilveira/";
 const whatsappText = encodeURIComponent(
@@ -210,11 +211,11 @@ function HeroSection() {
         <div className="motion-fade-up motion-delay-1 flex flex-1 flex-col justify-center py-10 sm:py-12 lg:py-14">
           <div className="max-w-xl">
             <h1 className="font-display leading-[0.95] tracking-[-0.07em] text-[#8abdeb]">
-              <span className="block text-[clamp(2.75rem,5vw,4.7rem)] font-medium text-[#6f9fca]">
+              <span className="mt-1 block text-[clamp(3.25rem,6vw,5.35rem)] font-semibold">
                 Cuidado com
               </span>
               <span className="mt-1 block text-[clamp(3.25rem,6vw,5.35rem)] font-semibold">
-                Sua Saúde
+                sua saúde
               </span>
             </h1>
             <div className="mt-6 h-px w-32 bg-[#8abdeb] sm:w-48" />
@@ -288,7 +289,7 @@ function LocationSection() {
                 Localização
               </p>
               <address className="not-italic">
-                <h2 className="max-w-2xl text-[clamp(1.9rem,6vw,3.25rem)] font-semibold leading-tight tracking-[-0.06em] text-ink">
+                <h2 className="max-w-2xl text-[clamp(1.35rem,3vw,1.5rem)] font-semibold leading-tight tracking-[-0.04em] text-gray-850">
                   {clinicAddress}
                 </h2>
               </address>
@@ -345,6 +346,91 @@ function LocationSection() {
   );
 }
 
+// function AboutSection() {
+//   const aboutCards = [
+//     {
+//       label: "Atendimento humano",
+//       text: "Escuta qualificada, acompanhamento próximo e cuidado centrado na pessoa em cada etapa da consulta.",
+//       icon: HeartPulseIcon,
+//     },
+//     {
+//       label: "Rigor técnico",
+//       text: "Atuação em infectologia com condutas baseadas em evidências, avaliação individualizada e orientação clara.",
+//       icon: ShieldCheckIcon,
+//     },
+//     {
+//       label: "Experiência acolhedora",
+//       text: "Um consultório pensado para transmitir calma, confiança e clareza desde o primeiro contato.",
+//       icon: SparkleIcon,
+//     },
+//   ];
+
+//   return (
+//     <section
+//       id="sobre"
+//       className="bg-[#f5f9fd] px-5 py-16 sm:px-8 sm:py-20 md:px-10 lg:px-16 lg:py-24"
+//     >
+//       <div className="mx-auto w-full max-w-7xl">
+//         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+//           <div className="space-y-5">
+//             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-brand">
+//               Sobre
+//             </p>
+
+//             <div className="space-y-4">
+//               <h2 className="max-w-2xl text-[clamp(2rem,4vw,3.1rem)] font-semibold leading-tight tracking-[-0.06em] text-ink">
+//                 Sobre a Dra. Suzana Silveira
+//               </h2>
+
+//               <div className="h-px w-28 bg-[#8abdeb]" />
+
+//               <p className="max-w-xl text-sm leading-7 text-[#6f8dab] sm:text-base sm:leading-8">
+//                 Médica infectologista com atuação voltada a um cuidado técnico,
+//                 humano e contemporâneo, unindo escuta qualificada, precisão
+//                 clínica e acompanhamento próximo.
+//               </p>
+
+//               <p className="max-w-xl text-sm leading-7 text-[#6f8dab] sm:text-base sm:leading-8">
+//                 A proposta do consultório é oferecer uma experiência clara e
+//                 acolhedora, com atenção individualizada e orientações seguras
+//                 para cada paciente.
+//               </p>
+//             </div>
+//           </div>
+
+//           <div className="grid gap-4 sm:grid-cols-1">
+//             {aboutCards.map((item) => {
+//               const Icon = item.icon;
+
+//               return (
+//                 <div
+//                   key={item.label}
+//                   className="rounded-[28px] border border-[#d7e7f4] bg-white p-5 shadow-[0_30px_70px_-46px_rgba(100,139,176,0.45)] sm:p-6"
+//                 >
+//                   <div className="flex items-start gap-4">
+//                     <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#eef6fd] text-brand">
+//                       <Icon className="size-5" />
+//                     </div>
+
+//                     <div className="space-y-2">
+//                       <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand">
+//                         {item.label}
+//                       </p>
+//                       <p className="text-sm leading-7 text-muted">
+//                         {item.text}
+//                       </p>
+//                     </div>
+//                   </div>
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 function ContactInlineItem({ item }: { item: ContactItem }) {
   const Icon = item.icon;
 
@@ -372,7 +458,7 @@ function ContactInlineItem({ item }: { item: ContactItem }) {
 
 function Footer({ currentYear }: { currentYear: number }) {
   return (
-    <footer id="contact" className="bg-[#f3f8fc] py-14 sm:py-16">
+    <footer id="contact" className="bg-[#fbfdff] py-14 sm:py-16">
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 md:px-10 lg:px-8">
         <div className="flex flex-col gap-8 border-b border-line/90 pb-10 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-4">
@@ -419,11 +505,8 @@ function Footer({ currentYear }: { currentYear: number }) {
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-brand">
               Informações profissionais
             </p>
-            <p className="text-sm leading-7 text-muted">
-              CRM: 70.700. Médica formada pela UFTM, especialista em
-              Infectologia pela FMRP-USP e em Medicina de Família e Comunidade
-              pela UNIFESP, com atuação em assistência, docência e gestão em
-              saúde.
+            <p className="max-w-[520px] text-sm leading-7 text-muted">
+              Médica Infectologista CRM-SP: 70.700 | RQE: 49.110
             </p>
           </div>
 
@@ -570,22 +653,20 @@ function HeroScene() {
 function HeroSignature() {
   return (
     <div className="border-t border-white/60 bg-[#edf5fb] px-5 py-5 sm:px-8 sm:py-6">
-      <div className="mx-auto flex max-w-xl flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-5">
+      <div className="mx-auto flex max-w-2xl flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-5">
         <div className="min-w-0">
-          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#7ea9d5]">
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[#7ea9d5]">
             {clinicSpecialty}
           </p>
-          <div className="mt-2 space-y-1">
-            <p className="text-[clamp(1.5rem,2.4vw,2.05rem)] font-semibold leading-none tracking-[-0.06em] text-[#35506b]">
-              Dra. Suzana
-            </p>
-            <p className="text-[clamp(1.15rem,2vw,1.55rem)] font-medium leading-none tracking-[-0.05em] text-[#7ea9d5]">
-              Aparecida Silveira
+
+          <div className="mt-2">
+            <p className="text-[clamp(1.35rem,2.2vw,1.85rem)] font-semibold leading-none tracking-[-0.04em] text-[#7ea9d5]">
+              Dra. Suzana Aparecida Silveira
             </p>
           </div>
         </div>
 
-        <div className="hidden min-w-[96px] items-center justify-end sm:flex">
+        <div className="hidden min-w-[120px] items-center justify-end sm:flex">
           <span className="h-px w-full bg-[#c7dbef]" />
         </div>
       </div>
